@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Ingresos y Gastos</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f4f8;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .input-group {
+      margin-bottom: 15px;
+    }
+    label {
+      font-size: 1rem;
+      color: #34495e;
+    }
+    input {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ced6e0;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px 5px 0 0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      color: white;
+    }
+    .btn-ingreso {
+      background-color: #27ae60;
+      box-shadow: 0 4px 6px rgba(39, 174, 96, 0.2);
+    }
+    .btn-gasto {
+      background-color: #e74c3c;
+      box-shadow: 0 4px 6px rgba(231, 76, 60, 0.2);
+    }
+    .btn-ingreso:hover {
+      background-color: #229954;
+    }
+    .btn-gasto:hover {
+      background-color: #c0392b;
+    }
+    .balance {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2980b9;
+      text-align: center;
+      margin: 20px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 10px 15px;
+      text-align: left;
+    }
+    thead {
+      background-color: #2c3e50;
+      color: white;
+    }
+    tbody tr {
+      border-bottom: 1px solid #dcdde1;
+    }
+    tbody tr:hover {
+      background-color: #f5f5f5;
+    }
+    .ingreso {
+      color: #27ae60;
+      font-weight: bold;
+    }
+    .gasto {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+    .icon {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fas fa-wallet"></i> Gestión de Ingresos y Gastos</h1>
+
+    <div class="input-group">
+      <label for="descripcion"><i class="fas fa-edit"></i> Descripción:</label>
+      <input type="text" id="descripcion" placeholder="Ejemplo: Salario, Compras...">
+    </div>
+
+    <div class="input-group">
+      <label for="monto"><i class="fas fa-dollar-sign"></i> Monto:</label>
+      <input type="number" id="monto" placeholder="Ejemplo: 1000">
+    </div>
+
+    <div>
+      <button class="btn-ingreso" onclick="agregarTransaccion('ingreso')">
+        <i class="fas fa-plus-circle"></i> Agregar Ingreso
+      </button>
+      <button class="btn-gasto" onclick="agregarTransaccion('gasto')">
+        <i class="fas fa-minus-circle"></i> Agregar Gasto
+      </button>
+    </div>
+
+    <h3><i class="fas fa-history"></i> Historial de Transacciones</h3>
+    <table id="tabla-historial" border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Descripción</th>
+          <th>Monto</th>
+          <th>Tipo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí se generarán dinámicamente las filas -->
+      </tbody>
+    </table>
+
+    
+    <div class="balance" id="balance">Balance Total: 0 $</div>
+  </div>
+
+  <script src="js/calculadoraF.js"></script>
+</body>
+</html>
